@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pizza Delivery</title>
+
+<!-- CSS -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: lightgoldenrodyellow;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .box {
+    background: white;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #d33;
+    border-radius: 15px;
+  }
+
+  h1 {
+    color: #d33;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  /* Radio buttons */
+  .radio-group {
+    margin-top: 8px;
+  }
+
+  .radio-group label {
+    display: block;
+    font-weight: normal;
+    margin-top: 6px;
+  }
+
+  .radio-group input[type="radio"] {
+    width: auto;
+    margin-right: 6px;
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .row > div {
+    flex: 1;
+  }
+
+  button {
+    margin-top: 18px;
+    width: 100%;
+    background: #d33;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #b02a2a;
+  }
+
+  .note {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    margin-top: 10px;
+  }
+
+  #msg {
+    display: none;
+    text-align: center;
+    background: #dff5df;
+    border: 1px solid #4a4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <!-- Header -->
+  <h1>Lyqa's Pizza</h1>
+
+  <!-- Form -->
+  <form id="orderForm">
+
+    <!-- Name -->
+    <label>Name</label>
+    <input type="text" placeholder="e.g. Lyqa Gairanod" required>
+
+    <!-- Phone -->
+    <label>Phone</label>
+    <input type="tel" placeholder="+63" required>
+
+    <!-- Address -->
+    <label>Delivery Address</label>
+    <textarea rows="2" required></textarea>
+
+    <!-- Size -->
+    <label>Size</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="size" value="Small" required>
+        Small (10")
+      </label>
+
+      <label>
+        <input type="radio" name="size" value="Medium">
+        Medium (12")
+      </label>
+
+      <label>
+        <input type="radio" name="size" value="Large">
+        Large (14")
+      </label>
+
+      <label>
+        <input type="radio" name="size" value="Extra Large">
+        Extra Large (16")
+      </label>
+    </div>
+
+    <!-- Toppings -->
+    <label>Flavor</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="topping" value="Cheese" required>
+        Pepperoni
+      </label>
+
+      <label>
+        <input type="radio" name="topping" value="Pepperoni">
+        Hawaiian
+      </label>
+
+      <label>
+        <input type="radio" name="topping" value="Mushrooms">
+        Mushrooms
+      </label>
+
+      <label>
+        <input type="radio" name="topping" value="Hawaiian">
+        Meat
+      </label>
+    </div>
+
+    <!-- Quantity and Payment -->
+    <div class="row">
+      <div>
+        <label>Quantity</label>
+        <input type="number" value="1" min="1">
+      </div>
+
+      <div>
+        <label>Payment</label>
+        <select>
+          <option>Cash</option>
+          <option>GCash</option>
+          <option>Maribank</option>
+          <option>GoTyme</option>
+          <option>Maya</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Delivery Notes -->
+    <label>Delivery Notes (optional)</label>
+    <input type="text">
+
+    <!-- Submit -->
+    <button type="submit">Place Order</button>
+
+  </form>
+
+  <div id="msg">
+    Order placed! Your pizza will arrive in 20–30 minutes.
+  </div>
+
+</div>
+
+<script>
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('msg').style.display = 'block';
+});
+</script>
+
+</body>
+</html>
